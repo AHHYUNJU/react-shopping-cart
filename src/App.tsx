@@ -1,9 +1,10 @@
 import "./App.css";
+import { ShoppingCartPage } from "./pages/ShoppingCartPage/ShoppingCartPage";
 
 function App() {
   return (
     <>
-      <h1>react-shopping-cart</h1>
+      <ShoppingCartPage />
     </>
   );
 }
