@@ -10,6 +10,8 @@ const ShoppingCartPage = () => {
     toggleAll,
     isAllChecked,
     toggleCheck,
+    getTotalPrice,
+    shippingFee,
   } = useCartItem();
 
   return (
@@ -28,14 +30,11 @@ const ShoppingCartPage = () => {
               checked={item.isChecked}
               onChange={() => {
                 toggleCheck(item.id);
-                console.log(
-                  `${item.product.name}의 체크 상태:`,
-                  !item.isChecked
-                );
               }}
             />
             <div key={item.id}>
-              {item.product.name}, 수량 :{item.cartQuantity}
+              {item.product.name}, 수량 :{item.cartQuantity}, 금액:
+              {item.product.price}
             </div>
             <button
               onClick={() =>
@@ -57,7 +56,9 @@ const ShoppingCartPage = () => {
       ) : (
         <p>장바구니에 상품이 없습니다</p>
       )}
-
+      <p>주문 금액: {getTotalPrice().toLocaleString()}원</p>
+      <p>배송비: {shippingFee(getTotalPrice()).toLocaleString()}원</p>
+      <p>총 주문 금액: {getTotalPrice() + shippingFee(getTotalPrice())}원</p>
       <Footer />
     </>
   );

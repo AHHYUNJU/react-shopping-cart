@@ -11,7 +11,15 @@ function useCartItem() {
   const fetchCartItems = async () => {
     try {
       const response = await getCartItem();
-      setCartItems(response.content);
+      setCartItems((prev) =>
+        response.content.map((newItem: CartItem) => {
+          const prevItem = prev.find((item) => item.id === newItem.id);
+          return {
+            ...newItem,
+            isChecked: prevItem ? prevItem.isChecked : true,
+          };
+        })
+      );
     } catch (err) {
       console.log("장바구니 아이템 불러오기 실패:", err);
     }
@@ -54,9 +62,28 @@ function useCartItem() {
     );
   };
 
+  const getTotalPrice = () => {
+    return cartItems
+      .filter((item) => item.isChecked)
+      .reduce((acc, item) => acc + item.product.price * item.cartQuantity, 0);
+  };
+
+  const shippingFee = (getTotalPrice: number) => {
+    if (getTotalPrice > 100000) {
+      return 0;
+    }
+    return 3000;
+  };
+
   useEffect(() => {
     fetchCartItems();
   }, []);
+
+  useEffect(() => {
+    const allChecked =
+      cartItems.length > 0 && cartItems.every((item) => item.isChecked);
+    setIsAllChecked(allChecked);
+  }, [cartItems]);
 
   return {
     cartItems,
@@ -66,6 +93,8 @@ function useCartItem() {
     toggleAll,
     isAllChecked,
     toggleCheck,
+    getTotalPrice,
+    shippingFee,
   };
 }
 
