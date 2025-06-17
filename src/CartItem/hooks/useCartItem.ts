@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import getCartItem from "../services/getCartItem";
+import { getCartItem } from "../services/getCartItem";
+import { patchCartItem } from "../services/patchCartItem";
 import { CartItem } from "../types/CartItem";
 
 function useCartItem() {
@@ -15,11 +16,20 @@ function useCartItem() {
     }
   };
 
+  const updateCartItemQuantity = async (id: number, quantity: number) => {
+    try {
+      await patchCartItem(id, quantity);
+      await fetchCartItems();
+    } catch (err) {
+      console.log("장바구니 수량 수정 실패:", err);
+    }
+  };
+
   useEffect(() => {
     fetchCartItems();
   }, []);
 
-  return { cartItems, fetchCartItems };
+  return { cartItems, fetchCartItems, updateCartItemQuantity };
 }
 
 export { useCartItem };

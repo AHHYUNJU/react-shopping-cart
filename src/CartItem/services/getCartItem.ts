@@ -8,9 +8,7 @@ const PAGEABLE_DEFAULT = {
   size: 20,
 };
 
-export default async function getCartItem(
-  pageable: PageableType = PAGEABLE_DEFAULT
-) {
+async function getCartItem(pageable: PageableType = PAGEABLE_DEFAULT) {
   const { page, size } = pageable;
   const token = import.meta.env.VITE_APP_TOKEN;
 
@@ -33,3 +31,5 @@ export default async function getCartItem(
 
   return data;
 }
+
+export { getCartItem };

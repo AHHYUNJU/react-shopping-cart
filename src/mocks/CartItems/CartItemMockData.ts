@@ -7,9 +7,9 @@ export const CART_ITEM_MOCK_DATA = [
       price: 1010,
       imageUrl: "",
       category: "패션잡화",
-      quantity: 1,
+      stockQuantity: 1,
     },
-    quantity: 1,
+    cartQuantity: 1,
   },
   {
     id: 7275,
@@ -20,9 +20,9 @@ export const CART_ITEM_MOCK_DATA = [
       imageUrl:
         "https://m.cocosocks.com/web/product/medium/202503/940897aced51144109baa4d145def01f.jpg",
       category: "패션잡화",
-      quantity: 10,
+      stockQuantity: 10,
     },
-    quantity: 2,
+    cartQuantity: 2,
   },
   {
     id: 7204,
@@ -33,9 +33,9 @@ export const CART_ITEM_MOCK_DATA = [
       imageUrl:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZeoCnBP_VbQ4pLozKbZOIu6B0A9FB3gaeQA&s",
       category: "패션잡화",
-      quantity: 20,
+      stockQuantity: 20,
     },
-    quantity: 3,
+    cartQuantity: 3,
   },
   {
     id: 72604,
@@ -45,8 +45,8 @@ export const CART_ITEM_MOCK_DATA = [
       price: 3210000,
       imageUrl: "",
       category: "패션잡화",
-      quantity: 50,
+      stockQuantity: 50,
     },
-    quantity: 4,
+    cartQuantity: 4,
   },
 ];
