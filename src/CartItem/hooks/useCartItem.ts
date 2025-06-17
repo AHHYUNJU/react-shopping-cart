@@ -6,6 +6,7 @@ import { deleteCartItem } from "../services/deleteCartItem";
 
 function useCartItem() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [isAllChecked, setIsAllChecked] = useState(true);
 
   const fetchCartItems = async () => {
     try {
@@ -38,11 +39,34 @@ function useCartItem() {
     }
   };
 
+  const toggleAll = () => {
+    setCartItems((prev) =>
+      prev.map((item) => ({ ...item, isChecked: !isAllChecked }))
+    );
+    setIsAllChecked((prev) => !prev);
+  };
+
+  const toggleCheck = (id: number) => {
+    setCartItems((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, isChecked: !item.isChecked } : item
+      )
+    );
+  };
+
   useEffect(() => {
     fetchCartItems();
   }, []);
 
-  return { cartItems, fetchCartItems, updateCartItemQuantity, removeCartItem };
+  return {
+    cartItems,
+    fetchCartItems,
+    updateCartItemQuantity,
+    removeCartItem,
+    toggleAll,
+    isAllChecked,
+    toggleCheck,
+  };
 }
 
 export { useCartItem };

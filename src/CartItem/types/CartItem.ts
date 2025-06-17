@@ -9,4 +9,5 @@ export interface CartItem {
     stockQuantity: number;
   };
   cartQuantity: number;
+  isChecked: boolean;
 }

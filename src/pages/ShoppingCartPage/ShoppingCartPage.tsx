@@ -3,14 +3,37 @@ import { Footer } from "@/shared/layout/Footer/Footer";
 import { useCartItem } from "@/CartItem/hooks/useCartItem";
 
 const ShoppingCartPage = () => {
-  const { cartItems, updateCartItemQuantity, removeCartItem } = useCartItem();
+  const {
+    cartItems,
+    updateCartItemQuantity,
+    removeCartItem,
+    toggleAll,
+    isAllChecked,
+    toggleCheck,
+  } = useCartItem();
 
   return (
     <>
       <Header />
+      <input
+        type="checkbox"
+        checked={isAllChecked}
+        onChange={toggleAll}
+      ></input>
       {Array.isArray(cartItems) && cartItems.length > 0 ? (
         cartItems.map((item) => (
           <>
+            <input
+              type="checkbox"
+              checked={item.isChecked}
+              onChange={() => {
+                toggleCheck(item.id);
+                console.log(
+                  `${item.product.name}의 체크 상태:`,
+                  !item.isChecked
+                );
+              }}
+            />
             <div key={item.id}>
               {item.product.name}, 수량 :{item.cartQuantity}
             </div>

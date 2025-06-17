@@ -10,6 +10,7 @@ export const CART_ITEM_MOCK_DATA = [
       stockQuantity: 1,
     },
     cartQuantity: 1,
+    isChecked: true,
   },
   {
     id: 7275,
@@ -23,6 +24,7 @@ export const CART_ITEM_MOCK_DATA = [
       stockQuantity: 10,
     },
     cartQuantity: 2,
+    isChecked: true,
   },
   {
     id: 7204,
@@ -36,6 +38,7 @@ export const CART_ITEM_MOCK_DATA = [
       stockQuantity: 20,
     },
     cartQuantity: 3,
+    isChecked: true,
   },
   {
     id: 72604,
@@ -48,5 +51,6 @@ export const CART_ITEM_MOCK_DATA = [
       stockQuantity: 50,
     },
     cartQuantity: 4,
+    isChecked: true,
   },
 ];
