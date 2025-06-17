@@ -51,4 +51,20 @@ export const cartItemHandler = [
 
     return HttpResponse.json(item, { status: 200 });
   }),
+
+  http.delete("/cart-items/:id", ({ params }) => {
+    const id = Number(params.id);
+
+    const index = CART_ITEM_MOCK_DATA.findIndex((item) => item.id === id);
+    if (index === -1) {
+      return HttpResponse.json(
+        { error: "삭제할 아이템을 찾을 수 없습니다." },
+        { status: 404 }
+      );
+    }
+
+    CART_ITEM_MOCK_DATA.splice(index, 1);
+
+    return HttpResponse.json({ message: "삭제 성공" }, { status: 200 });
+  }),
 ];
