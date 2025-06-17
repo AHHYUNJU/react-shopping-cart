@@ -29,11 +29,20 @@ function useCartItem() {
     }
   };
 
+  const removeCartItem = async (id: number) => {
+    try {
+      await deleteCartItem(id);
+      await fetchCartItems();
+    } catch (err) {
+      console.log("장바구니 아이템 삭제 실패:", err);
+    }
+  };
+
   useEffect(() => {
     fetchCartItems();
   }, []);
 
-  return { cartItems, fetchCartItems, updateCartItemQuantity };
+  return { cartItems, fetchCartItems, updateCartItemQuantity, removeCartItem };
 }
 
 export { useCartItem };

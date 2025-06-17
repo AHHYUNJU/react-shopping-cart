@@ -3,7 +3,7 @@ import { Footer } from "@/shared/layout/Footer/Footer";
 import { useCartItem } from "@/CartItem/hooks/useCartItem";
 
 const ShoppingCartPage = () => {
-  const { cartItems, updateCartItemQuantity } = useCartItem();
+  const { cartItems, updateCartItemQuantity, removeCartItem } = useCartItem();
 
   return (
     <>
@@ -12,7 +12,7 @@ const ShoppingCartPage = () => {
         cartItems.map((item) => (
           <>
             <div key={item.id}>
-              {item.product.name}({item.cartQuantity})
+              {item.product.name}, 수량 :{item.cartQuantity}
             </div>
             <button
               onClick={() =>
@@ -28,6 +28,7 @@ const ShoppingCartPage = () => {
             >
               +
             </button>
+            <button onClick={() => removeCartItem(item.id)}>삭제</button>
           </>
         ))
       ) : (
