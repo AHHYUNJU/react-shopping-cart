@@ -1,7 +1,7 @@
 import * as S from "./Footer.styles";
 
-const Footer = () => {
+function Footer() {
   return <S.Footer>Footer</S.Footer>;
-};
+}
 
 export { Footer };

@@ -3,7 +3,7 @@ import { Footer } from "@/shared/layout/Footer/Footer";
 import { useCartItem } from "@/CartItem/hooks/useCartItem";
 import { useCoupon } from "@/Coupon/hooks/useCoupon";
 
-const ShoppingCartPage = () => {
+function ShoppingCartPage() {
   const {
     cartItems,
     updateCartItemQuantity,
@@ -74,6 +74,6 @@ const ShoppingCartPage = () => {
       <Footer />
     </>
   );
-};
+}
 
 export { ShoppingCartPage };
