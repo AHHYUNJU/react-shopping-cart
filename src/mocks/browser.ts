@@ -1,4 +1,4 @@
 import { setupWorker } from "msw/browser";
-import { cartItemHandler } from "./CartItems/CartItemsHandlers";
+import { cartItemHandler } from "./cartItem/cartItemHandler";
 
 export const worker = setupWorker(...cartItemHandler);

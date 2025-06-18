@@ -56,6 +56,7 @@ const ShoppingCartPage = () => {
       ) : (
         <p>장바구니에 상품이 없습니다</p>
       )}
+      <button>쿠폰 적용</button>
       <p>주문 금액: {getTotalPrice().toLocaleString()}원</p>
       <p>배송비: {shippingFee(getTotalPrice()).toLocaleString()}원</p>
       <p>총 주문 금액: {getTotalPrice() + shippingFee(getTotalPrice())}원</p>
