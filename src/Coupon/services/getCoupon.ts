@@ -1,7 +1,7 @@
-async function getCoupon(id: number) {
+async function getCoupon() {
   const token = import.meta.env.VITE_APP_TOKEN;
 
-  const response = await fetch(`/coupons?${id}`, {
+  const response = await fetch(`/coupons`, {
     method: "GET",
     headers: { Authorization: `Basic ${token}` },
   });

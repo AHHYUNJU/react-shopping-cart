@@ -15,7 +15,7 @@ const ShoppingCartPage = () => {
     shippingFee,
   } = useCartItem();
 
-  const { coupon } = useCoupon(1);
+  const { coupon } = useCoupon();
   return (
     <>
       <Header />
