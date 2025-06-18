@@ -1,4 +1,4 @@
-export interface CartItem {
+export type CartItem = {
   id: number;
   product: {
     id: number;
@@ -10,4 +10,4 @@ export interface CartItem {
   };
   cartQuantity: number;
   isChecked: boolean;
-}
+};
