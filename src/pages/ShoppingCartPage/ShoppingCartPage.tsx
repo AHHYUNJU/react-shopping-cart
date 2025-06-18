@@ -1,6 +1,7 @@
 import { Header } from "@/shared/layout/Header/Header";
 import { Footer } from "@/shared/layout/Footer/Footer";
 import { useCartItem } from "@/CartItem/hooks/useCartItem";
+import { useCoupon } from "@/Coupon/hooks/useCoupon";
 
 const ShoppingCartPage = () => {
   const {
@@ -14,6 +15,7 @@ const ShoppingCartPage = () => {
     shippingFee,
   } = useCartItem();
 
+  const { coupon } = useCoupon(1);
   return (
     <>
       <Header />
@@ -57,6 +59,15 @@ const ShoppingCartPage = () => {
         <p>장바구니에 상품이 없습니다</p>
       )}
       <button>쿠폰 적용</button>
+      {coupon.length > 0 ? (
+        <ul>
+          {coupon.map((c) => (
+            <li key={c.id}>{c.code}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>사용 가능한 쿠폰이 없습니다</p>
+      )}
       <p>주문 금액: {getTotalPrice().toLocaleString()}원</p>
       <p>배송비: {shippingFee(getTotalPrice()).toLocaleString()}원</p>
       <p>총 주문 금액: {getTotalPrice() + shippingFee(getTotalPrice())}원</p>
