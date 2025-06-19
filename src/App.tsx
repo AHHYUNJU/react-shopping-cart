@@ -1,13 +1,16 @@
 import "./App.css";
+import { CartItemProvider } from "./CartItem/context/CartItemContext";
 import { CouponProvider } from "./Coupon/context/CouponContext";
 import { ShoppingCartPage } from "./pages/ShoppingCartPage/ShoppingCartPage";
 
 function App() {
   return (
     <>
-      <CouponProvider>
-        <ShoppingCartPage />
-      </CouponProvider>
+      <CartItemProvider>
+        <CouponProvider>
+          <ShoppingCartPage />
+        </CouponProvider>
+      </CartItemProvider>
     </>
   );
 }

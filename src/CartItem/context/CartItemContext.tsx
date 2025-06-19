@@ -1,10 +1,31 @@
-import { useEffect, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useState,
+  useMemo,
+  useEffect,
+  useContext,
+} from "react";
+import { CartItemResponse } from "../types/CartItemResponse";
 import { getCartItem } from "../services/getCartItem";
 import { patchCartItem } from "../services/patchCartItem";
-import { CartItemResponse } from "../types/CartItemResponse";
 import { deleteCartItem } from "../services/deleteCartItem";
 
-function useCartItem() {
+type CartItemContextType = {
+  cartItemList: CartItemResponse[];
+  isAllChecked: boolean;
+  updateCartItemQuantity: (id: number, quantity: number) => Promise<void>;
+  removeCartItem: (id: number) => Promise<void>;
+  toggleAll: () => void;
+  toggleCheck: (id: number) => void;
+  getTotalPrice: () => number;
+  shippingFee: (totalPrice: number) => number;
+};
+
+export const CartItemContext = createContext<CartItemContextType | undefined>(
+  undefined
+);
+export const CartItemProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItemResponse[]>([]);
   const [isAllChecked, setIsAllChecked] = useState(true);
 
@@ -85,17 +106,33 @@ function useCartItem() {
     setIsAllChecked(allChecked);
   }, [cartItems]);
 
-  return {
-    cartItems,
-    fetchCartItems,
-    updateCartItemQuantity,
-    removeCartItem,
-    toggleAll,
-    isAllChecked,
-    toggleCheck,
-    getTotalPrice,
-    shippingFee,
-  };
-}
+  const value = useMemo<CartItemContextType>(
+    () => ({
+      cartItemList: cartItems,
+      isAllChecked,
+      updateCartItemQuantity,
+      removeCartItem,
+      toggleAll,
+      toggleCheck,
+      getTotalPrice,
+      shippingFee,
+    }),
+    [cartItems, isAllChecked]
+  );
 
-export { useCartItem };
+  return (
+    <CartItemContext.Provider value={value}>
+      {children}
+    </CartItemContext.Provider>
+  );
+};
+
+export const useCartItemContext = () => {
+  const context = useContext(CartItemContext);
+  if (!context) {
+    throw new Error(
+      "useCartItemContext는 CartItemProvider 내부에서 사용되어야 합니다."
+    );
+  }
+  return context;
+};

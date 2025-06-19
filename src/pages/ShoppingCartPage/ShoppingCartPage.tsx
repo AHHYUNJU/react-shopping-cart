@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Header } from "@/shared/layout/Header/Header";
 import { Footer } from "@/shared/layout/Footer/Footer";
-import { useCartItem } from "@/CartItem/hooks/useCartItem";
+import { useCartItemContext } from "@/CartItem/context/CartItemContext";
 import { useCouponContext } from "@/Coupon/context/CouponContext";
 import { Modal } from "@/shared/component/Modal/Modal";
 
 function ShoppingCartPage() {
   const {
-    cartItems,
+    cartItemList,
     updateCartItemQuantity,
     removeCartItem,
     toggleAll,
@@ -15,7 +15,7 @@ function ShoppingCartPage() {
     toggleCheck,
     getTotalPrice,
     shippingFee,
-  } = useCartItem();
+  } = useCartItemContext();
 
   const { couponList } = useCouponContext();
 
@@ -28,8 +28,8 @@ function ShoppingCartPage() {
         checked={isAllChecked}
         onChange={toggleAll}
       ></input>
-      {Array.isArray(cartItems) && cartItems.length > 0 ? (
-        cartItems.map((item) => (
+      {Array.isArray(cartItemList) && cartItemList.length > 0 ? (
+        cartItemList.map((item) => (
           <>
             <input
               type="checkbox"
