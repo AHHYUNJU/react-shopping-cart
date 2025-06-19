@@ -6,7 +6,7 @@ import {
   useContext,
   useEffect,
 } from "react";
-import { CouponResponse } from "../types/Coupon";
+import { CouponResponse } from "../types/CouponResponse";
 import { getCoupon } from "../services/getCoupon";
 
 type CouponContextType = {

@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import { getCartItem } from "../services/getCartItem";
 import { patchCartItem } from "../services/patchCartItem";
-import { CartItem } from "../types/CartItem";
+import { CartItemResponse } from "../types/CartItemResponse";
 import { deleteCartItem } from "../services/deleteCartItem";
 
 function useCartItem() {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItemResponse[]>([]);
   const [isAllChecked, setIsAllChecked] = useState(true);
 
   const fetchCartItems = async () => {
     try {
       const response = await getCartItem();
       setCartItems((prev) =>
-        response.content.map((newItem: CartItem) => {
+        response.content.map((newItem: CartItemResponse) => {
           const prevItem = prev.find((item) => item.id === newItem.id);
           return {
             ...newItem,
