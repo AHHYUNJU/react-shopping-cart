@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Header } from "@/shared/layout/Header/Header";
 import { Footer } from "@/shared/layout/Footer/Footer";
 import { useCartItem } from "@/CartItem/hooks/useCartItem";
-import { useCoupon } from "@/Coupon/hooks/useCoupon";
+import { useCouponContext } from "@/Coupon/context/CouponContext";
 import { Modal } from "@/shared/component/Modal/Modal";
 
 function ShoppingCartPage() {
@@ -17,7 +17,7 @@ function ShoppingCartPage() {
     shippingFee,
   } = useCartItem();
 
-  const { coupon } = useCoupon();
+  const { couponList } = useCouponContext();
 
   const [isCouponModalOpen, setIsCouponModalOpen] = useState(false);
   return (
@@ -67,9 +67,9 @@ function ShoppingCartPage() {
         isOpen={isCouponModalOpen}
         onClose={() => setIsCouponModalOpen(false)}
       >
-        {coupon.length > 0 ? (
+        {couponList.length > 0 ? (
           <ul>
-            {coupon.map((c) => (
+            {couponList.map((c) => (
               <li key={c.id}>{c.code}</li>
             ))}
           </ul>

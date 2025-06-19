@@ -1,4 +1,4 @@
-export type Coupon = {
+export type CouponResponse = {
   id: number;
   code: string;
   description: string;

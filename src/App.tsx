@@ -1,10 +1,13 @@
 import "./App.css";
+import { CouponProvider } from "./Coupon/context/CouponContext";
 import { ShoppingCartPage } from "./pages/ShoppingCartPage/ShoppingCartPage";
 
 function App() {
   return (
     <>
-      <ShoppingCartPage />
+      <CouponProvider>
+        <ShoppingCartPage />
+      </CouponProvider>
     </>
   );
 }
