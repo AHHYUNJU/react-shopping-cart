@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Header } from "@/shared/layout/Header/Header";
 import { Footer } from "@/shared/layout/Footer/Footer";
 import { useCartItemContext } from "@/CartItem/context/CartItemContext";
-import { useCouponContext } from "@/Coupon/context/CouponContext";
-import { Modal } from "@/shared/component/Modal/Modal";
+import { CouponModal } from "@/Coupon/ui/CouponModal/CouponModal";
 
 function ShoppingCartPage() {
   const {
@@ -16,8 +15,6 @@ function ShoppingCartPage() {
     getTotalPrice,
     shippingFee,
   } = useCartItemContext();
-
-  const { couponList } = useCouponContext();
 
   const [isCouponModalOpen, setIsCouponModalOpen] = useState(false);
   return (
@@ -63,20 +60,10 @@ function ShoppingCartPage() {
         <p>장바구니에 상품이 없습니다</p>
       )}
       <button onClick={() => setIsCouponModalOpen(true)}>쿠폰 적용</button>
-      <Modal
+      <CouponModal
         isOpen={isCouponModalOpen}
         onClose={() => setIsCouponModalOpen(false)}
-      >
-        {couponList.length > 0 ? (
-          <ul>
-            {couponList.map((c) => (
-              <li key={c.id}>{c.code}</li>
-            ))}
-          </ul>
-        ) : (
-          <p>사용 가능한 쿠폰이 없습니다</p>
-        )}
-      </Modal>
+      ></CouponModal>
       <p>주문 금액: {getTotalPrice().toLocaleString()}원</p>
       <p>배송비: {shippingFee(getTotalPrice()).toLocaleString()}원</p>
       <p>총 주문 금액: {getTotalPrice() + shippingFee(getTotalPrice())}원</p>
