@@ -8,7 +8,7 @@ import * as S from "./OrderCheckPage.styles";
 function OrderCheckPage() {
   const navigate = useNavigate();
   const handleCheckoutButtonClick = () => {
-    navigate("pay-check", {});
+    navigate("/pay-check", {});
   };
 
   return (

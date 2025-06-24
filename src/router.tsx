@@ -11,6 +11,7 @@ const routes = [
       { path: "/", element: <ShoppingCartPage /> },
       { path: "/order-check", element: <OrderCheckPage /> },
       { path: "/pay-check", element: <PayCheckPage /> },
+      { path: "*", element: <p>오류가 발생하였습니다.</p> },
     ],
   },
 ];
