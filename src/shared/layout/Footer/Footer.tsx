@@ -1,13 +1,12 @@
 import * as S from "./Footer.styles";
+import { FooterProps } from "./Footer.types";
 
-type FooterProps = {
-  children?: React.ReactNode;
-};
-
-function Footer({ children }: FooterProps) {
+function Footer({ text, active = false, handleClick }: FooterProps) {
   return (
-    <S.Footer>
-      <S.Span>{children}</S.Span>
+    <S.Footer active={active}>
+      <S.Button onClick={handleClick}>
+        <S.Span>{text}</S.Span>
+      </S.Button>
     </S.Footer>
   );
 }
