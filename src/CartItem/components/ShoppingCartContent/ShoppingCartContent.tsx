@@ -1,6 +1,4 @@
-// import { useState } from "react";
 import { useCartItemContext } from "@/CartItem/context/CartItemContext";
-// import { CouponModal } from "@/Coupon/ui/CouponModal/CouponModal";
 import Checkbox from "@/shared/component/Checkbox/Checkbox";
 import Hr from "@/shared/component/Hr/Hr";
 import Info from "../../../assets/Info.png";
@@ -18,8 +16,6 @@ function ShoppingCartContent() {
     getTotalPrice,
     shippingFee,
   } = useCartItemContext();
-
-  // const [isCouponModalOpen, setIsCouponModalOpen] = useState(false);
 
   return (
     <S.ShoppingCartContent>
@@ -86,11 +82,7 @@ function ShoppingCartContent() {
           <p>장바구니에 상품이 없습니다</p>
         )}
       </S.ItemList>
-      {/* <button onClick={() => setIsCouponModalOpen(true)}>쿠폰 적용</button>
-      <CouponModal
-        isOpen={isCouponModalOpen}
-        onClose={() => setIsCouponModalOpen(false)}
-      ></CouponModal> */}
+
       <S.ReceiptWrapper>
         <S.ShippingInfo>
           <S.Img src={Info} />

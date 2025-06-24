@@ -46,6 +46,7 @@ export const CheckWrapper = styled.div`
 export const Title = styled.p`
   font-weight: 700;
   font-size: 24px;
+  padding-bottom: 15px;
 `;
 
 export const SubText = styled.p`
@@ -126,6 +127,9 @@ export const QuantityControl = styled.div`
     font-size: 12px;
   }
 `;
+export const ReceiptWrapper = styled.div`
+  margin: 40px 0;
+`;
 
 export const ShippingInfo = styled.div`
   display: flex;
@@ -141,10 +145,6 @@ export const Img = styled.img`
 export const Description = styled.p`
   font-weight: 500;
   font-size: 12px;
-`;
-
-export const ReceiptWrapper = styled.div`
-  margin: 40px 0;
 `;
 
 export const Receipt = styled.div``;
