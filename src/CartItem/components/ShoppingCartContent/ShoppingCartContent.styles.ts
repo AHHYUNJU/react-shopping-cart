@@ -55,7 +55,6 @@ export const SubText = styled.p`
 
 export const ItemList = styled.div`
   width: 382px;
-  height: 384px;
   top: 198px;
   left: 24px;
 `;
@@ -127,3 +126,25 @@ export const QuantityControl = styled.div`
     font-size: 12px;
   }
 `;
+
+export const ShippingInfo = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+`;
+
+export const Img = styled.img`
+  width: 16px;
+  height: 16px;
+`;
+
+export const Description = styled.p`
+  font-weight: 500;
+  font-size: 12px;
+`;
+
+export const ReceiptWrapper = styled.div`
+  margin: 40px 0;
+`;
+
+export const Receipt = styled.div``;
