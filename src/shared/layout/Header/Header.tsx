@@ -1,7 +1,15 @@
 import * as S from "./Header.styles";
 
-function Header() {
-  return <S.Header>Header</S.Header>;
+interface HeaderProps {
+  children?: React.ReactNode;
+}
+
+function Header({ children }: HeaderProps) {
+  return (
+    <S.Header>
+      <S.Span>{children}</S.Span>
+    </S.Header>
+  );
 }
 
 export { Header };

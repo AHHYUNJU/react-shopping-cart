@@ -1,7 +1,15 @@
 import * as S from "./Footer.styles";
 
-function Footer() {
-  return <S.Footer>Footer</S.Footer>;
+type FooterProps = {
+  children?: React.ReactNode;
+};
+
+function Footer({ children }: FooterProps) {
+  return (
+    <S.Footer>
+      <S.Span>{children}</S.Span>
+    </S.Footer>
+  );
 }
 
 export { Footer };
