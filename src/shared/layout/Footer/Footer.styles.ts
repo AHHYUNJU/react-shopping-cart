@@ -6,6 +6,7 @@ export const Footer = styled.footer`
   width: 430px;
   height: 64px;
   align-items: center;
+  flex-shrink: 0;
 `;
 export const Span = styled.div`
   color: #ffffff;

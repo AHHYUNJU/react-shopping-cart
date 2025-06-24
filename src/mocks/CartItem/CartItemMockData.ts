@@ -3,9 +3,10 @@ export const CART_ITEM_MOCK_DATA = [
     id: 7264,
     product: {
       id: 42,
-      name: "프린세스",
+      name: "아이스아메리카노",
       price: 1000,
-      imageUrl: "",
+      imageUrl:
+        "https://imagecdn.dpon.gift/images/merchandises/%EC%95%84%EC%9D%B4%EC%8A%A4-%EC%95%84%EB%A9%94%EB%A6%AC%EC%B9%B4%EB%85%B8-P.jpg",
       category: "패션잡화",
       stockQuantity: 1,
     },
@@ -46,7 +47,8 @@ export const CART_ITEM_MOCK_DATA = [
       id: 24,
       name: "부리부리 원형 테이블",
       price: 3210000,
-      imageUrl: "",
+      imageUrl:
+        "https://cafe24.poxo.com/ec01/dmswo9075/YepDBcpQi6F1EGuL9rzRwWdi5vWy1H646qnS3Lu/YvPgo8SOtnH0449rPknsST/TR46SKP49q34lpDnrmUQlEQ==/_/web/product/big/202408/19deee5e9d060d80a4180e2b2ecb6ce8.jpg",
       category: "패션잡화",
       stockQuantity: 50,
     },
