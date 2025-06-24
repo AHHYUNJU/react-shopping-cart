@@ -1,19 +1,9 @@
 import "./App.css";
-import "./styles/reset.css";
-import { CartItemProvider } from "./CartItem/context/CartItemContext";
-import { CouponProvider } from "./Coupon/context/CouponContext";
-import { ShoppingCartPage } from "./pages/ShoppingCartPage/ShoppingCartPage";
+import { router } from "./router";
+import { RouterProvider } from "react-router";
 
 function App() {
-  return (
-    <>
-      <CartItemProvider>
-        <CouponProvider>
-          <ShoppingCartPage />
-        </CouponProvider>
-      </CartItemProvider>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

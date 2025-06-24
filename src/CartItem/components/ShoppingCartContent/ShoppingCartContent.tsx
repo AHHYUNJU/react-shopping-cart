@@ -1,9 +1,11 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useCartItemContext } from "@/CartItem/context/CartItemContext";
-import { CouponModal } from "@/Coupon/ui/CouponModal/CouponModal";
+// import { CouponModal } from "@/Coupon/ui/CouponModal/CouponModal";
 import Checkbox from "@/shared/component/Checkbox/Checkbox";
 import Hr from "@/shared/component/Hr/Hr";
+import Info from "../../../assets/Info.png";
 import * as S from "./ShoppingCartContent.styles";
+import Price from "@/shared/component/Price/Price";
 
 function ShoppingCartContent() {
   const {
@@ -17,7 +19,7 @@ function ShoppingCartContent() {
     shippingFee,
   } = useCartItemContext();
 
-  const [isCouponModalOpen, setIsCouponModalOpen] = useState(false);
+  // const [isCouponModalOpen, setIsCouponModalOpen] = useState(false);
 
   return (
     <S.ShoppingCartContent>
@@ -84,14 +86,29 @@ function ShoppingCartContent() {
           <p>장바구니에 상품이 없습니다</p>
         )}
       </S.ItemList>
-      <button onClick={() => setIsCouponModalOpen(true)}>쿠폰 적용</button>
+      {/* <button onClick={() => setIsCouponModalOpen(true)}>쿠폰 적용</button>
       <CouponModal
         isOpen={isCouponModalOpen}
         onClose={() => setIsCouponModalOpen(false)}
-      ></CouponModal>
-      <p>주문 금액: {getTotalPrice().toLocaleString()}원</p>
-      <p>배송비: {shippingFee(getTotalPrice()).toLocaleString()}원</p>
-      <p>총 주문 금액: {getTotalPrice() + shippingFee(getTotalPrice())}원</p>
+      ></CouponModal> */}
+      <S.ReceiptWrapper>
+        <S.ShippingInfo>
+          <S.Img src={Info} />
+          <S.Description>
+            총 주문 금액이 100,000원 이상일 경우 무료 배송됩니다.
+          </S.Description>
+        </S.ShippingInfo>
+        <Hr />
+        <S.Receipt>
+          <Price name="주문 금액" price={getTotalPrice()} />
+          <Price name="배송비" price={shippingFee(getTotalPrice())} />
+          <Hr />
+          <Price
+            name="총 결제 금액"
+            price={getTotalPrice() + shippingFee(getTotalPrice())}
+          />
+        </S.Receipt>
+      </S.ReceiptWrapper>
     </S.ShoppingCartContent>
   );
 }
