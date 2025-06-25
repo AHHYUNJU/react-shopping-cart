@@ -8,17 +8,18 @@ import { useCartItemContext } from "@/CartItem/context/CartItemContext";
 function ShoppingCartPage() {
   const navigate = useNavigate();
   const { cartItemList } = useCartItemContext();
+  const selectedCartItemList = cartItemList.filter((item) => item.isChecked);
 
   const handleOrderListButtonClick = () => {
-    // localStorage.setItem(
-    //   "selectedCartItemList",
-    //   JSON.stringify(selectedCartItemList)
-    // );
+    localStorage.setItem(
+      "selectedCartItemList",
+      JSON.stringify(selectedCartItemList)
+    );
 
     navigate("/order-check", {
-      // state: {
-      //   selectedCartItemList,
-      // },
+      state: {
+        selectedCartItemList,
+      },
     });
   };
 

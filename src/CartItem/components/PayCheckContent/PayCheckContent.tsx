@@ -1,23 +1,30 @@
-import { useCartItemContext } from "@/CartItem/context/CartItemContext";
 import * as S from "./PayCheckContent.styles";
+import { CartItemResponse } from "@/CartItem/types/CartItemResponse";
+import { useReceipt } from "@/CartItem/hooks/useReceipt";
 
-function PayCheckContent() {
-  const { cartItemList } = useCartItemContext();
-  const totalQuantity = cartItemList.reduce(
-    (acc, item) => acc + item.cartQuantity,
-    0
+type Props = {
+  selectedCartItemList: CartItemResponse[];
+  isRemote: boolean;
+};
+
+function PayCheckContent({ selectedCartItemList, isRemote }: Props) {
+  const { totalQuantity, finalPayment } = useReceipt(
+    selectedCartItemList,
+    isRemote
   );
+
   return (
     <S.PayCheckContent>
       <S.Title>결제 확인</S.Title>
       <S.SubText>
         <span>
-          총 {cartItemList.length}종류의 상품 {totalQuantity}개를 주문했습니다.
+          총 {selectedCartItemList.length}종류의 상품 {totalQuantity}개를
+          주문했습니다.
         </span>
         <span>최종 결제 금액을 확인해 주세요.</span>
       </S.SubText>
       <S.PriceTitle>총 결제 금액</S.PriceTitle>
-      <S.TotalPrice>7,--원</S.TotalPrice>
+      <S.TotalPrice>{finalPayment.toLocaleString()}원</S.TotalPrice>
     </S.PayCheckContent>
   );
 }
