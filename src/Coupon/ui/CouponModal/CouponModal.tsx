@@ -2,6 +2,8 @@ import { Modal } from "@/shared/component/Modal/Modal";
 import * as S from "./CouponModal.styles";
 import { useCouponContext } from "@/Coupon/context/CouponContext";
 import { CouponItem } from "./CouponItem";
+import closeButton from "../../../assets/closeButton.png";
+import { Info } from "@/shared/component/Info/Info";
 
 type CouponModalProps = {
   isOpen: boolean;
@@ -21,11 +23,12 @@ function CouponModal({ isOpen, onClose }: CouponModalProps) {
       onClose={onClose}
       header={
         <S.ModalHeader>
-          <p>쿠폰을 선택해 주세요</p>
-          <button onClick={onClose}>닫기</button>
+          <S.Title>쿠폰을 선택해 주세요</S.Title>
+          <S.CloseButton src={closeButton} onClick={onClose} />
         </S.ModalHeader>
       }
     >
+      <Info message="쿠폰은 최대 2개까지 사용할 수 있습니다." />
       {couponList.length > 0 ? (
         <S.CouponContent>
           {couponList.map((c) => (

@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { Hr } from "@/shared/component/Hr/Hr";
-import { Price } from "@/shared/component/Price/Price";
-import Info from "../../../assets/Info.png";
 import { CouponModal } from "@/Coupon/ui/CouponModal/CouponModal";
 import * as S from "./OrderCheckContent.styles";
 import Shipping from "@/shared/component/Shipping/Shipping";
 import { CartItemResponse } from "@/CartItem/types/CartItemResponse";
 import { useReceipt } from "@/CartItem/hooks/useReceipt";
+import { Receipt } from "@/shared/component/Receipt/Receipt";
 
 type Props = {
   selectedCartItemList: CartItemResponse[];
@@ -20,8 +19,10 @@ function OrderCheckContent({
   onRemoteChange,
 }: Props) {
   const [isCouponModalOpen, setIsCouponModalOpen] = useState(false);
-  const { totalQuantity, totalPrice, finalShippingFee, finalPayment } =
-    useReceipt(selectedCartItemList, isRemote);
+  const { totalQuantity, totalPrice, finalShippingFee } = useReceipt(
+    selectedCartItemList,
+    isRemote
+  );
 
   return (
     <S.OrderCheckContent>
@@ -67,22 +68,11 @@ function OrderCheckContent({
         onClose={() => setIsCouponModalOpen(false)}
       ></CouponModal>
       <Shipping isRemote={isRemote} onRemoteChange={onRemoteChange} />
-      <S.ReceiptWrapper>
-        <S.ShippingInfo>
-          <S.Img src={Info} />
-          <S.Description>
-            총 주문 금액이 100,000원 이상일 경우 무료 배송됩니다.
-          </S.Description>
-        </S.ShippingInfo>
-        <Hr />
-        <S.Receipt>
-          <Price name="주문 금액" price={totalPrice} />
-          <Price name="쿠폰 할인 금액" price={0} />
-          <Price name="배송비" price={finalShippingFee} />
-          <Hr />
-          <Price name="총 결제 금액" price={finalPayment} />
-        </S.Receipt>
-      </S.ReceiptWrapper>
+      <Receipt
+        allProductPrice={totalPrice}
+        shippingFee={finalShippingFee}
+        couponDiscount={0}
+      />
     </S.OrderCheckContent>
   );
 }
