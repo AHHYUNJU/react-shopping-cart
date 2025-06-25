@@ -1,9 +1,8 @@
 import { useCartItemContext } from "@/CartItem/context/CartItemContext";
-import Checkbox from "@/shared/component/Checkbox/Checkbox";
-import Hr from "@/shared/component/Hr/Hr";
-import Info from "../../../assets/Info.png";
+import { Checkbox } from "@/shared/component/Checkbox/Checkbox";
+import { Hr } from "@/shared/component/Hr/Hr";
+import { Receipt } from "@/shared/component/Receipt/Receipt";
 import * as S from "./ShoppingCartContent.styles";
-import Price from "@/shared/component/Price/Price";
 
 function ShoppingCartContent() {
   const {
@@ -82,25 +81,10 @@ function ShoppingCartContent() {
           <p>장바구니에 상품이 없습니다</p>
         )}
       </S.ItemList>
-
-      <S.ReceiptWrapper>
-        <S.ShippingInfo>
-          <S.Img src={Info} />
-          <S.Description>
-            총 주문 금액이 100,000원 이상일 경우 무료 배송됩니다.
-          </S.Description>
-        </S.ShippingInfo>
-        <Hr />
-        <S.Receipt>
-          <Price name="주문 금액" price={getTotalPrice()} />
-          <Price name="배송비" price={shippingFee(getTotalPrice())} />
-          <Hr />
-          <Price
-            name="총 결제 금액"
-            price={getTotalPrice() + shippingFee(getTotalPrice())}
-          />
-        </S.Receipt>
-      </S.ReceiptWrapper>
+      <Receipt
+        allProductPrice={getTotalPrice()}
+        shippingFee={shippingFee(getTotalPrice())}
+      />
     </S.ShoppingCartContent>
   );
 }
