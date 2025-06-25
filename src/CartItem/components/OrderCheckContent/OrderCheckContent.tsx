@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useCartItemContext } from "@/CartItem/context/CartItemContext";
-import Hr from "@/shared/component/Hr/Hr";
-import Price from "@/shared/component/Price/Price";
+import { Hr } from "@/shared/component/Hr/Hr";
+import { Price } from "@/shared/component/Price/Price";
 import Info from "../../../assets/Info.png";
 import { CouponModal } from "@/Coupon/ui/CouponModal/CouponModal";
 import * as S from "./OrderCheckContent.styles";

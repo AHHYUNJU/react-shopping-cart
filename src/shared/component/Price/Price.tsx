@@ -5,7 +5,7 @@ interface PriceProps {
   price: number;
 }
 
-export default function Price({ name, price }: PriceProps) {
+function Price({ name, price }: PriceProps) {
   return (
     <S.Container>
       <S.Name>{name}</S.Name>
@@ -13,3 +13,4 @@ export default function Price({ name, price }: PriceProps) {
     </S.Container>
   );
 }
+export { Price };

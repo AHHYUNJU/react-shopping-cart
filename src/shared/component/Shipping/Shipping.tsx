@@ -1,5 +1,5 @@
 import * as S from "./Shipping.styles";
-import Checkbox from "../Checkbox/Checkbox";
+import { Checkbox } from "../Checkbox/Checkbox";
 
 interface ShippingProps {
   isRemote: boolean;

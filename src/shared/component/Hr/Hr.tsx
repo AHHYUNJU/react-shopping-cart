@@ -1,5 +1,6 @@
 import * as S from "./Hr.styles";
 
-export default function Hr() {
+function Hr() {
   return <S.Hr />;
 }
+export { Hr };
