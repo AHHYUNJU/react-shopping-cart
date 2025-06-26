@@ -1,48 +1,34 @@
-import { CouponResponse } from "@/Coupon/types/CouponResponse";
 import { Checkbox } from "@/shared/component/Checkbox/Checkbox";
-import {
-  formatDate,
-  formatCurrency,
-  formatAvailableTime,
-} from "@/Coupon/utils/format";
+import { formatDate } from "@/Coupon/utils/format";
 import * as S from "./CouponModal.styles";
+import { CouponInfoRender } from "./CouponInfoRender";
+import { CouponItemProps } from "./CouponItemProps";
 
-type CouponItemProps = {
-  coupon: CouponResponse;
-  isChecked: boolean;
-  onCheck: (id: number) => void;
-};
+function CouponItem({
+  coupon,
+  isChecked,
+  isDisabled,
+  onCheck,
+}: CouponItemProps) {
+  const { id, description, expirationDate } = coupon;
 
-function CouponItem({ coupon, isChecked, onCheck }: CouponItemProps) {
-  const { description, expirationDate } = coupon;
+  const handleClick = () => {
+    if (isDisabled) return;
+    onCheck(id);
+  };
+
   return (
-    <S.CouponItem onClick={() => onCheck(coupon.id)}>
+    <S.CouponItem
+      onClick={handleClick}
+      style={{ opacity: isDisabled ? 0.4 : 1 }}
+    >
       <S.CouponToolbar>
-        <Checkbox type="checkbox" checked={isChecked} />
+        <Checkbox type="checkbox" checked={isChecked} disabled={isDisabled} />
         <S.Name>{description}</S.Name>
       </S.CouponToolbar>
       <S.CouponInfoWrapper>
         <S.CouponInfo>만료일: {formatDate(expirationDate)}</S.CouponInfo>
-
-        {coupon.discountType === "fixed" && (
-          <>
-            <S.CouponInfo>
-              최소 주문 금액: {formatCurrency(coupon.minimumAmount)}
-            </S.CouponInfo>
-          </>
-        )}
-
-        {coupon.discountType === "freeShipping" && (
-          <S.CouponInfo>
-            최소 주문 금액: {formatCurrency(coupon.minimumAmount)}
-          </S.CouponInfo>
-        )}
-
-        {coupon.discountType === "percentage" && (
-          <S.CouponInfo>
-            사용 가능 기간: {formatAvailableTime(coupon.availableTime)}
-          </S.CouponInfo>
-        )}
+        <CouponInfoRender coupon={coupon} />
       </S.CouponInfoWrapper>
     </S.CouponItem>
   );

@@ -23,6 +23,7 @@ function OrderCheckContent({
     selectedCartItemList,
     isRemote
   );
+  const [couponDiscount, setCouponDiscount] = useState(0);
 
   return (
     <S.OrderCheckContent>
@@ -66,12 +67,16 @@ function OrderCheckContent({
       <CouponModal
         isOpen={isCouponModalOpen}
         onClose={() => setIsCouponModalOpen(false)}
+        allProductPrice={totalPrice}
+        cartItems={selectedCartItemList}
+        shippingFee={finalShippingFee}
+        onDiscountChange={setCouponDiscount}
       ></CouponModal>
       <Shipping isRemote={isRemote} onRemoteChange={onRemoteChange} />
       <Receipt
         allProductPrice={totalPrice}
         shippingFee={finalShippingFee}
-        couponDiscount={0}
+        couponDiscount={couponDiscount}
       />
     </S.OrderCheckContent>
   );
