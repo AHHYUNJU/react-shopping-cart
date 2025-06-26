@@ -125,5 +125,6 @@ export const QuantityControl = styled.div`
     height: 15px;
     font-weight: 500;
     font-size: 12px;
+    text-align: center;
   }
 `;
