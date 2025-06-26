@@ -105,6 +105,8 @@ export const CouponApplyButton = styled.button`
   width: 382px;
   height: 48px;
   border-radius: 5px;
+  font-weight: 700;
+  font-size: 15px;
   color: #333333bf;
   border: 1px solid #33333340;
   margin: 30px 0;

@@ -4,6 +4,7 @@ import { useCouponContext } from "@/Coupon/context/CouponContext";
 import { CouponItem } from "./CouponItem";
 import closeButton from "../../../assets/closeButton.png";
 import { Info } from "@/shared/component/Info/Info";
+import { Hr } from "@/shared/component/Hr/Hr";
 
 type CouponModalProps = {
   isOpen: boolean;
@@ -32,17 +33,20 @@ function CouponModal({ isOpen, onClose }: CouponModalProps) {
       {couponList.length > 0 ? (
         <S.CouponContent>
           {couponList.map((c) => (
-            <CouponItem
-              key={c.id}
-              coupon={c}
-              isChecked={checkedCoupons.includes(c.id)}
-              onCheck={handleCheck}
-            />
+            <div key={c.id}>
+              <Hr />
+              <CouponItem
+                coupon={c}
+                isChecked={checkedCoupons.includes(c.id)}
+                onCheck={handleCheck}
+              />
+            </div>
           ))}
         </S.CouponContent>
       ) : (
         <p>사용 가능한 쿠폰이 없습니다</p>
       )}
+      <S.ApplyButton>총 5,000원 할인 쿠폰 사용하기</S.ApplyButton>
     </Modal>
   );
 }
