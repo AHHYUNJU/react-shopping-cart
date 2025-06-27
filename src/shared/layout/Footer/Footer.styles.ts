@@ -13,11 +13,17 @@ export const Span = styled.div`
   color: #ffffff;
   font-weight: 700;
   font-size: 16px;
-  cursor: pointer;
   padding: 20px;
 `;
 
 export const Button = styled.button`
   width: 100%;
   height: 100%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
