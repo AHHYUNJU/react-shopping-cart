@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { Hr } from "@/shared/component/Hr/Hr";
+import { Hr } from "@/shared/components/Hr/Hr";
 import { CouponModal } from "@/Coupon/ui/CouponModal/CouponModal";
-import { Shipping } from "@/shared/component/Shipping/Shipping";
+import { Shipping } from "@/shared/components/Shipping/Shipping";
 import { CartItemResponse } from "@/CartItem/types/CartItemResponse";
 import { useReceipt } from "@/CartItem/hooks/useReceipt";
-import { Receipt } from "@/shared/component/Receipt/Receipt";
+import { Receipt } from "@/shared/components/Receipt/Receipt";
 
 import * as S from "./OrderCheckContent.styles";
 

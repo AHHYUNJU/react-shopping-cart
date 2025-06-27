@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { Modal } from "@/shared/component/Modal/Modal";
+import { Modal } from "@/shared/components/Modal/Modal";
 import * as S from "./CouponModal.styles";
 import { useCouponContext } from "@/Coupon/context/CouponContext";
 import { CouponItem } from "./CouponItem";
 import closeButton from "../../../assets/closeButton.png";
-import { Info } from "@/shared/component/Info/Info";
-import { Hr } from "@/shared/component/Hr/Hr";
+import { Info } from "@/shared/components/Info/Info";
+import { Hr } from "@/shared/components/Hr/Hr";
 import { isCouponDisabled } from "./isCouponDisabled";
 import { calculateCouponDiscounts } from "@/Coupon/utils/calculateCouponDiscount";
 import { CartItemResponse } from "@/CartItem/types/CartItemResponse";

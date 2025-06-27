@@ -1,7 +1,7 @@
 import { useCartItemContext } from "@/CartItem/context/CartItemContext";
-import { Checkbox } from "@/shared/component/Checkbox/Checkbox";
-import { Hr } from "@/shared/component/Hr/Hr";
-import { Receipt } from "@/shared/component/Receipt/Receipt";
+import { Checkbox } from "@/shared/components/Checkbox/Checkbox";
+import { Hr } from "@/shared/components/Hr/Hr";
+import { Receipt } from "@/shared/components/Receipt/Receipt";
 
 import * as S from "./ShoppingCartContent.styles";
 

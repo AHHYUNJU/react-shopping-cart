@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { Header } from "@/shared/layout/Header/Header";
 import { Footer } from "@/shared/layout/Footer/Footer";
-import { ErrorBox } from "@/shared/component/Errorbox/Errorbox";
+import { ErrorBox } from "@/shared/components/Errorbox/Errorbox";
 import { OrderCheckContent } from "@/CartItem/components/OrderCheckContent/OrderCheckContent";
 import { useErrorContext } from "@/shared/context/ErrorContext";
 import backButton from "../../assets/backButton.png";
