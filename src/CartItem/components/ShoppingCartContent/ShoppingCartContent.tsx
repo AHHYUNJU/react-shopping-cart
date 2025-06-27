@@ -2,6 +2,7 @@ import { useCartItemContext } from "@/CartItem/context/CartItemContext";
 import { Checkbox } from "@/shared/component/Checkbox/Checkbox";
 import { Hr } from "@/shared/component/Hr/Hr";
 import { Receipt } from "@/shared/component/Receipt/Receipt";
+
 import * as S from "./ShoppingCartContent.styles";
 
 function ShoppingCartContent() {

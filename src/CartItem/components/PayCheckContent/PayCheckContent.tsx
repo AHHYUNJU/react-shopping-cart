@@ -1,6 +1,7 @@
-import * as S from "./PayCheckContent.styles";
 import { CartItemResponse } from "@/CartItem/types/CartItemResponse";
 import { useReceipt } from "@/CartItem/hooks/useReceipt";
+
+import * as S from "./PayCheckContent.styles";
 
 type Props = {
   selectedCartItemList: CartItemResponse[];

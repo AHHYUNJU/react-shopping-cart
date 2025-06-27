@@ -1,12 +1,11 @@
-import * as S from "./Shipping.styles";
 import { Checkbox } from "../Checkbox/Checkbox";
 
+import * as S from "./Shipping.styles";
 interface ShippingProps {
   isRemote: boolean;
   onRemoteChange: (checked: boolean) => void;
 }
-
-export default function Shipping({ isRemote, onRemoteChange }: ShippingProps) {
+function Shipping({ isRemote, onRemoteChange }: ShippingProps) {
   return (
     <section>
       <S.Title>배송 정보</S.Title>
@@ -21,3 +20,4 @@ export default function Shipping({ isRemote, onRemoteChange }: ShippingProps) {
     </section>
   );
 }
+export { Shipping };

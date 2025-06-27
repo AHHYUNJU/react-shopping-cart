@@ -1,7 +1,8 @@
 import { useLocation, useNavigate } from "react-router";
 import { Header } from "@/shared/layout/Header/Header";
-import { PayCheckContent } from "@/CartItem/components/PayCheckContent/PayCheckContent";
 import { Footer } from "@/shared/layout/Footer/Footer";
+import { PayCheckContent } from "@/CartItem/components/PayCheckContent/PayCheckContent";
+
 import * as S from "./PayCheckPage.styles";
 
 function PayCheckPage() {
