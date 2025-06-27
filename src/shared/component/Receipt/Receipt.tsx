@@ -8,12 +8,14 @@ type ReceiptProps = {
   allProductPrice: number;
   shippingFee: number;
   couponDiscount?: number;
+  showCouponDiscount?: boolean;
 };
 
 function Receipt({
   allProductPrice,
   shippingFee,
   couponDiscount = 0,
+  showCouponDiscount = false,
 }: ReceiptProps) {
   return (
     <S.ReceiptWrapper>
@@ -23,6 +25,7 @@ function Receipt({
         allProductPrice={allProductPrice}
         couponDiscount={couponDiscount}
         shippingFee={shippingFee}
+        showCouponDiscount={showCouponDiscount}
       />
       <Hr />
       <Price

@@ -6,17 +6,21 @@ interface DetailPriceProps {
   allProductPrice: number;
   shippingFee: number;
   couponDiscount?: number;
+  showCouponDiscount?: boolean;
 }
 
 function DetailPrice({
   allProductPrice,
   shippingFee,
   couponDiscount = 0,
+  showCouponDiscount = false,
 }: DetailPriceProps) {
   return (
     <S.DetailPrice>
       <Price name="주문 금액" price={allProductPrice} />
-      <Price name="쿠폰 할인 금액" price={-couponDiscount} />
+      {showCouponDiscount && (
+        <Price name="쿠폰 할인 금액" price={-couponDiscount} />
+      )}
       <Price name="배송비" price={shippingFee} />
     </S.DetailPrice>
   );

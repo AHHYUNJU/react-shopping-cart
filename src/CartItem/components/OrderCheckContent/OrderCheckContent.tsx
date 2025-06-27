@@ -77,6 +77,7 @@ function OrderCheckContent({
         allProductPrice={totalPrice}
         shippingFee={finalShippingFee}
         couponDiscount={couponDiscount}
+        showCouponDiscount={true}
       />
     </S.OrderCheckContent>
   );
