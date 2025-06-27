@@ -3,15 +3,18 @@ import "./styles/reset.css";
 import { Outlet } from "react-router";
 import { CartItemProvider } from "./CartItem/context/CartItemContext";
 import { CouponProvider } from "./Coupon/context/CouponContext";
+import { ErrorProvider } from "./shared/context/ErrorContext";
 
 function Layout() {
   return (
     <>
-      <CartItemProvider>
-        <CouponProvider>
-          <Outlet />
-        </CouponProvider>
-      </CartItemProvider>
+      <ErrorProvider>
+        <CartItemProvider>
+          <CouponProvider>
+            <Outlet />
+          </CouponProvider>
+        </CartItemProvider>
+      </ErrorProvider>
     </>
   );
 }

@@ -2,8 +2,12 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { Header } from "@/shared/layout/Header/Header";
 import { Footer } from "@/shared/layout/Footer/Footer";
+import { ErrorBox } from "@/shared/component/Errorbox/Errorbox";
 import { OrderCheckContent } from "@/CartItem/components/OrderCheckContent/OrderCheckContent";
+import { useErrorContext } from "@/shared/context/ErrorContext";
 import backButton from "../../assets/backButton.png";
+import useCartItemList from "@/CartItem/hooks/useCartItemList";
+
 import * as S from "./OrderCheckPage.styles";
 
 function OrderCheckPage() {
@@ -13,6 +17,8 @@ function OrderCheckPage() {
   const [isRemote, setIsRemote] = useState(false);
   const [couponDiscount, setCouponDiscount] = useState(0);
   const [finalPrice, setFinalPrice] = useState(0);
+  const { state } = useCartItemList();
+  const { errorMessage } = useErrorContext();
 
   const handleCheckoutButtonClick = () => {
     navigate("/pay-check", {
@@ -25,11 +31,16 @@ function OrderCheckPage() {
     });
   };
 
+  if (state.isLoading) {
+    return <div>로딩 중...</div>;
+  }
+
   return (
     <S.OrderCheckPage>
       <Header>
         <img src={backButton} alt="뒤로가기" onClick={() => navigate(-1)}></img>
       </Header>
+      {errorMessage && <ErrorBox />}
       <OrderCheckContent
         selectedCartItemList={selectedCartItemList}
         isRemote={isRemote}
