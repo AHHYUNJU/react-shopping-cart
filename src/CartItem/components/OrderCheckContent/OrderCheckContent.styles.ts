@@ -35,6 +35,7 @@ export const CartHeader = styled.div`
   text-align: left;
   padding: 24px 0;
 `;
+
 export const Title = styled.p`
   font-weight: 700;
   font-size: 24px;
@@ -48,6 +49,7 @@ export const SubText = styled.p`
   flex-direction: column;
   gap: 10px;
 `;
+
 export const ItemList = styled.div`
   width: 382px;
   top: 198px;
@@ -68,6 +70,7 @@ export const Item = styled.div`
   gap: 24px;
   display: flex;
   flex-direction: row;
+  text-align: left;
 `;
 
 export const Image = styled.img`
@@ -86,19 +89,16 @@ export const Info = styled.div`
 export const Name = styled.p`
   font-weight: 500;
   font-size: 12px;
-  text-align: left;
 `;
 
 export const Price = styled.p`
   font-weight: 700;
   font-size: 24px;
-  text-align: left;
 `;
 
 export const Quantity = styled.p`
   font-weight: 500;
   font-size: 12px;
-  text-align: left;
 `;
 
 export const CouponApplyButton = styled.button`

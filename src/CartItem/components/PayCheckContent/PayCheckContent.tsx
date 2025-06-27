@@ -5,13 +5,15 @@ import { useReceipt } from "@/CartItem/hooks/useReceipt";
 type Props = {
   selectedCartItemList: CartItemResponse[];
   isRemote: boolean;
+  finalPrice: number;
 };
 
-function PayCheckContent({ selectedCartItemList, isRemote }: Props) {
-  const { totalQuantity, finalPayment } = useReceipt(
-    selectedCartItemList,
-    isRemote
-  );
+function PayCheckContent({
+  selectedCartItemList,
+  isRemote,
+  finalPrice,
+}: Props) {
+  const { totalQuantity } = useReceipt(selectedCartItemList, isRemote);
 
   return (
     <S.PayCheckContent>
@@ -24,8 +26,9 @@ function PayCheckContent({ selectedCartItemList, isRemote }: Props) {
         <span>최종 결제 금액을 확인해 주세요.</span>
       </S.SubText>
       <S.PriceTitle>총 결제 금액</S.PriceTitle>
-      <S.TotalPrice>{finalPayment.toLocaleString()}원</S.TotalPrice>
+      <S.TotalPrice>{finalPrice.toLocaleString()}원</S.TotalPrice>
     </S.PayCheckContent>
   );
 }
+
 export { PayCheckContent };

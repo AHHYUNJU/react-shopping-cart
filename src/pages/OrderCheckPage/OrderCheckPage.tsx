@@ -11,12 +11,16 @@ function OrderCheckPage() {
   const location = useLocation();
   const selectedCartItemList = location.state?.selectedCartItemList || [];
   const [isRemote, setIsRemote] = useState(false);
+  const [couponDiscount, setCouponDiscount] = useState(0);
+  const [finalPrice, setFinalPrice] = useState(0);
 
   const handleCheckoutButtonClick = () => {
     navigate("/pay-check", {
       state: {
         selectedCartItemList,
         isRemote,
+        couponDiscount,
+        finalPrice,
       },
     });
   };
@@ -30,6 +34,8 @@ function OrderCheckPage() {
         selectedCartItemList={selectedCartItemList}
         isRemote={isRemote}
         onRemoteChange={setIsRemote}
+        onDiscountChange={setCouponDiscount}
+        onFinalPriceChange={setFinalPrice}
       />
       <Footer
         text="결제하기"

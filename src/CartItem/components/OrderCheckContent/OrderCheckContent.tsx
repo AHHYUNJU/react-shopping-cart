@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Hr } from "@/shared/component/Hr/Hr";
 import { CouponModal } from "@/Coupon/ui/CouponModal/CouponModal";
 import * as S from "./OrderCheckContent.styles";
@@ -11,12 +11,16 @@ type Props = {
   selectedCartItemList: CartItemResponse[];
   isRemote: boolean;
   onRemoteChange: (checked: boolean) => void;
+  onDiscountChange: (amount: number) => void;
+  onFinalPriceChange: (price: number) => void;
 };
 
 function OrderCheckContent({
   selectedCartItemList,
   isRemote,
   onRemoteChange,
+  onDiscountChange,
+  onFinalPriceChange,
 }: Props) {
   const [isCouponModalOpen, setIsCouponModalOpen] = useState(false);
   const { totalQuantity, totalPrice, finalShippingFee } = useReceipt(
@@ -24,6 +28,11 @@ function OrderCheckContent({
     isRemote
   );
   const [couponDiscount, setCouponDiscount] = useState(0);
+
+  useEffect(() => {
+    onDiscountChange(couponDiscount);
+    onFinalPriceChange(totalPrice + finalShippingFee - couponDiscount);
+  }, [couponDiscount, totalPrice, finalShippingFee]);
 
   return (
     <S.OrderCheckContent>

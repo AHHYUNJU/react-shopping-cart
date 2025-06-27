@@ -7,8 +7,11 @@ import * as S from "./PayCheckPage.styles";
 function PayCheckPage() {
   const navigate = useNavigate();
   const location = useLocation();
-  const selectedCartItemList = location.state?.selectedCartItemList || [];
-  const isRemote = location.state?.isRemote || false;
+  const {
+    selectedCartItemList = [],
+    isRemote = false,
+    finalPrice = 0,
+  } = location.state || {};
 
   const handleReturnClick = () => {
     navigate("/", {});
@@ -20,6 +23,7 @@ function PayCheckPage() {
       <PayCheckContent
         selectedCartItemList={selectedCartItemList}
         isRemote={isRemote}
+        finalPrice={finalPrice}
       />
       <Footer
         text="장바구니로 돌아가기"
