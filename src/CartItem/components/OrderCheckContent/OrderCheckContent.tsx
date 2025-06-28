@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Hr } from "@/shared/components/common/Hr/Hr";
 import { CouponModal } from "@/Coupon/ui/CouponModal/CouponModal";
 import { Shipping } from "@/shared/components/receipt/Shipping/Shipping";
 import { CartItemResponse } from "@/CartItem/types/CartItemResponse";
 import { useReceipt } from "@/CartItem/hooks/useReceipt";
+import { useCouponModal } from "@/Coupon/hooks/useCouponModal";
 import { Receipt } from "@/shared/components/receipt/Receipt/Receipt";
 
 import * as S from "./OrderCheckContent.styles";
@@ -24,16 +25,22 @@ function OrderCheckContent({
   onDiscountChange,
   onFinalPriceChange,
 }: Props) {
-  const [isCouponModalOpen, setIsCouponModalOpen] = useState(false);
   const { totalQuantity, totalPrice, finalShippingFee } = useReceipt(
     selectedCartItemList,
     isRemote
   );
-  const [couponDiscount, setCouponDiscount] = useState(0);
+  const {
+    isOpen: isCouponModalOpen,
+    open: openCouponModal,
+    close: closeCouponModal,
+    discount: couponDiscount,
+    applyDiscount,
+  } = useCouponModal();
 
   useEffect(() => {
+    const finalPrice = totalPrice + finalShippingFee - couponDiscount;
     onDiscountChange(couponDiscount);
-    onFinalPriceChange(totalPrice + finalShippingFee - couponDiscount);
+    onFinalPriceChange(finalPrice);
   }, [couponDiscount, totalPrice, finalShippingFee]);
 
   return (
@@ -50,6 +57,7 @@ function OrderCheckContent({
           </S.SubText>
         </S.SubText>
       </S.CartHeader>
+
       <S.ItemList>
         {Array.isArray(selectedCartItemList) &&
         selectedCartItemList.length > 0 ? (
@@ -72,16 +80,17 @@ function OrderCheckContent({
           <p>장바구니에 상품이 없습니다</p>
         )}
       </S.ItemList>
-      <S.CouponApplyButton onClick={() => setIsCouponModalOpen(true)}>
+
+      <S.CouponApplyButton onClick={() => openCouponModal()}>
         쿠폰 적용
       </S.CouponApplyButton>
       <CouponModal
         isOpen={isCouponModalOpen}
-        onClose={() => setIsCouponModalOpen(false)}
+        onClose={() => closeCouponModal()}
         allProductPrice={totalPrice}
         cartItems={selectedCartItemList}
         shippingFee={finalShippingFee}
-        onDiscountChange={setCouponDiscount}
+        onDiscountChange={applyDiscount}
       ></CouponModal>
       <Shipping isRemote={isRemote} onRemoteChange={onRemoteChange} />
       <Receipt
