@@ -6,6 +6,7 @@ import { useReceipt } from "@/CartItem/hooks/useReceipt";
 import { useCouponModal } from "@/Coupon/hooks/useCouponModal";
 import { Receipt } from "@/shared/components/receipt/Receipt/Receipt";
 import { CartItemBox } from "../CartItemBox/CartItemBox";
+import { TitleSection } from "@/shared/components/common/\bTitleSection/TitleSection";
 
 import * as S from "./OrderCheckContent.styles";
 
@@ -45,16 +46,13 @@ function OrderCheckContent({
   return (
     <S.OrderCheckContent>
       <S.CartHeader>
-        <S.Title>주문 확인</S.Title>
-        <S.SubText>
-          <S.SubText>
-            <span>
-              총 {selectedCartItemList.length}종류의 상품 {totalQuantity}개를
-              주문합니다.
-            </span>
-            <span>최종 결제 금액을 확인해 주세요.</span>
-          </S.SubText>
-        </S.SubText>
+        <TitleSection
+          title="주문 확인"
+          subTexts={[
+            `총 ${selectedCartItemList.length}종류의 상품 ${totalQuantity}개를 주문합니다.`,
+            "최종 결제 금액을 확인해 주세요.",
+          ]}
+        />
       </S.CartHeader>
 
       <S.ItemList>

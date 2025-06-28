@@ -28,17 +28,6 @@ export const CheckWrapper = styled.div`
   gap: 8px;
 `;
 
-export const Title = styled.p`
-  font-weight: 700;
-  font-size: 24px;
-  padding-bottom: 15px;
-`;
-
-export const SubText = styled.p`
-  font-weight: 500;
-  font-size: 12px;
-`;
-
 export const ItemList = styled.div`
   width: 382px;
   top: 198px;

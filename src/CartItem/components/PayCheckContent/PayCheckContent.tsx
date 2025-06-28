@@ -1,5 +1,6 @@
 import { CartItemResponse } from "@/CartItem/types/CartItemResponse";
 import { useReceipt } from "@/CartItem/hooks/useReceipt";
+import { TitleSection } from "@/shared/components/common/\bTitleSection/TitleSection";
 
 import * as S from "./PayCheckContent.styles";
 
@@ -18,14 +19,14 @@ function PayCheckContent({
 
   return (
     <S.PayCheckContent>
-      <S.Title>결제 확인</S.Title>
-      <S.SubText>
-        <span>
-          총 {selectedCartItemList.length}종류의 상품 {totalQuantity}개를
-          주문했습니다.
-        </span>
-        <span>최종 결제 금액을 확인해 주세요.</span>
-      </S.SubText>
+      <TitleSection
+        title="결제 확인"
+        subTexts={[
+          `총 ${selectedCartItemList.length}종류의 상품 ${totalQuantity}개를 주문했습니다.`,
+          "최종 결제 금액을 확인해 주세요.",
+        ]}
+        align="center"
+      />
       <S.PriceTitle>총 결제 금액</S.PriceTitle>
       <S.TotalPrice>{finalPrice.toLocaleString()}원</S.TotalPrice>
     </S.PayCheckContent>

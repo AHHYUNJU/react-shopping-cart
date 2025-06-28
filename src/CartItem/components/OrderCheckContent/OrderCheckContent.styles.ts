@@ -21,20 +21,6 @@ export const CartHeader = styled.div`
   padding: 24px 0;
 `;
 
-export const Title = styled.p`
-  font-weight: 700;
-  font-size: 24px;
-  padding-bottom: 15px;
-`;
-
-export const SubText = styled.p`
-  font-weight: 500;
-  font-size: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
-
 export const ItemList = styled.div`
   width: 382px;
   top: 198px;

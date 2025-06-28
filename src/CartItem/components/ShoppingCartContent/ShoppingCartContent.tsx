@@ -2,6 +2,7 @@ import { useCartItemContext } from "@/CartItem/context/CartItemContext";
 import { Checkbox } from "@/shared/components/common/Checkbox/Checkbox";
 import { Receipt } from "@/shared/components/receipt/Receipt/Receipt";
 import { CartItemBox } from "../CartItemBox/CartItemBox";
+import { TitleSection } from "@/shared/components/common/\bTitleSection/TitleSection";
 
 import * as S from "./ShoppingCartContent.styles";
 
@@ -23,10 +24,10 @@ function ShoppingCartContent() {
   return (
     <S.ShoppingCartContent>
       <S.CartHeader>
-        <S.Title>장바구니</S.Title>
-        <S.SubText>
-          현재 {cartItemList.length}종류의 상품이 담겨있습니다.
-        </S.SubText>
+        <TitleSection
+          title="장바구니"
+          subTexts={[`현재 ${cartItemList.length}종류의 상품이 담겨있습니다.`]}
+        />
       </S.CartHeader>
       <S.CheckWrapper>
         <Checkbox
