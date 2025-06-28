@@ -1,14 +1,13 @@
 import { useEffect } from "react";
-import { Hr } from "@/shared/components/common/Hr/Hr";
 import { CouponModal } from "@/Coupon/ui/CouponModal/CouponModal";
 import { Shipping } from "@/shared/components/receipt/Shipping/Shipping";
 import { CartItemResponse } from "@/CartItem/types/CartItemResponse";
 import { useReceipt } from "@/CartItem/hooks/useReceipt";
 import { useCouponModal } from "@/Coupon/hooks/useCouponModal";
 import { Receipt } from "@/shared/components/receipt/Receipt/Receipt";
+import { CartItemBox } from "../CartItemBox/CartItemBox";
 
 import * as S from "./OrderCheckContent.styles";
-import { Flex } from "@/shared/components/common/Flex";
 
 type Props = {
   selectedCartItemList: CartItemResponse[];
@@ -59,22 +58,9 @@ function OrderCheckContent({
       </S.CartHeader>
 
       <S.ItemList>
-        {Array.isArray(selectedCartItemList) &&
-        selectedCartItemList.length > 0 ? (
+        {selectedCartItemList.length > 0 ? (
           selectedCartItemList.map((item) => (
-            <S.ItemBox key={item.id}>
-              <Hr />
-              <S.Item>
-                <S.Image src={item.product.imageUrl} alt={item.product.name} />
-                <S.Info>
-                  <Flex direction="column" gap="4px">
-                    <S.Name>{item.product.name}</S.Name>
-                    <S.Price>{item.product.price.toLocaleString()}원</S.Price>
-                  </Flex>
-                  <S.Quantity>{item.cartQuantity}개</S.Quantity>
-                </S.Info>
-              </S.Item>
-            </S.ItemBox>
+            <CartItemBox key={item.id} item={item} readOnly />
           ))
         ) : (
           <p>장바구니에 상품이 없습니다</p>

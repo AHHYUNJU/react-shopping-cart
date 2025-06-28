@@ -42,50 +42,6 @@ export const ItemList = styled.div`
   padding-top: 20px;
 `;
 
-export const ItemBox = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-`;
-
-export const Item = styled.div`
-  width: 100%;
-  height: 112px;
-  gap: 24px;
-  display: flex;
-  flex-direction: row;
-  text-align: left;
-`;
-
-export const Image = styled.img`
-  width: 112px;
-  height: 112px;
-  border-radius: 8px;
-`;
-
-export const Info = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  padding-top: 20px;
-`;
-
-export const Name = styled.p`
-  font-weight: 500;
-  font-size: 12px;
-`;
-
-export const Price = styled.p`
-  font-weight: 700;
-  font-size: 24px;
-`;
-
-export const Quantity = styled.p`
-  font-weight: 500;
-  font-size: 12px;
-`;
-
 export const CouponApplyButton = styled.button`
   width: 382px;
   height: 48px;

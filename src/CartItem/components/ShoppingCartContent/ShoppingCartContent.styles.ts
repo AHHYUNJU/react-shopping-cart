@@ -38,3 +38,10 @@ export const SubText = styled.p`
   font-weight: 500;
   font-size: 12px;
 `;
+
+export const ItemList = styled.div`
+  width: 382px;
+  top: 198px;
+  left: 24px;
+  padding-top: 20px;
+`;

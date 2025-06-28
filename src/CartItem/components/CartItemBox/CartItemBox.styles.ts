@@ -1,11 +1,5 @@
 import styled from "@emotion/styled";
 
-export const ItemList = styled.div`
-  width: 382px;
-  top: 198px;
-  left: 24px;
-`;
-
 export const ItemBox = styled.div`
   width: 100%;
   height: 180px;
@@ -46,6 +40,11 @@ export const Price = styled.p`
   font-weight: 700;
   font-size: 24px;
   text-align: left;
+`;
+
+export const Quantity = styled.p`
+  font-weight: 500;
+  font-size: 12px;
 `;
 
 export const QuantityControl = styled.div`
