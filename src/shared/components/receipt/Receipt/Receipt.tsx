@@ -1,6 +1,6 @@
-import { Info } from "../Info/Info";
-import { Hr } from "../Hr/Hr";
-import { Price } from "../Price/Price";
+import { Info } from "../../common/Info/Info";
+import { Hr } from "../../common/Hr/Hr";
+import { Price } from "../../common/Price/Price";
 import { DetailPrice } from "../DetailPrice/DetailPrice";
 
 import * as S from "./Receipt.styles";

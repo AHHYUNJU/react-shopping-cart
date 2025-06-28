@@ -1,4 +1,4 @@
-import info from "../../../assets/info.png";
+import info from "@/assets/info.png";
 import * as S from "./Info.styles";
 
 type Props = {

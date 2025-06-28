@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import { Hr } from "@/shared/components/Hr/Hr";
+import { Hr } from "@/shared/components/common/Hr/Hr";
 import { CouponModal } from "@/Coupon/ui/CouponModal/CouponModal";
-import { Shipping } from "@/shared/components/Shipping/Shipping";
+import { Shipping } from "@/shared/components/receipt/Shipping/Shipping";
 import { CartItemResponse } from "@/CartItem/types/CartItemResponse";
 import { useReceipt } from "@/CartItem/hooks/useReceipt";
-import { Receipt } from "@/shared/components/Receipt/Receipt";
+import { Receipt } from "@/shared/components/receipt/Receipt/Receipt";
 
 import * as S from "./OrderCheckContent.styles";
-import { Flex } from "@/shared/components/Flex";
+import { Flex } from "@/shared/components/common/Flex";
 
 type Props = {
   selectedCartItemList: CartItemResponse[];

@@ -1,9 +1,9 @@
 import { useCartItemContext } from "@/CartItem/context/CartItemContext";
-import { Hr } from "@/shared/components/Hr/Hr";
-import { Checkbox } from "@/shared/components/Checkbox/Checkbox";
+import { Hr } from "@/shared/components/common/Hr/Hr";
+import { Checkbox } from "@/shared/components/common/Checkbox/Checkbox";
 
 import * as S from "./ItemList.styles";
-import { Flex } from "@/shared/components/Flex";
+import { Flex } from "@/shared/components/common/Flex";
 
 function ItemList() {
   const { cartItemList, updateCartItemQuantity, removeCartItem, toggleCheck } =

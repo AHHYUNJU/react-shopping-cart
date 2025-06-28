@@ -1,4 +1,4 @@
-import { Checkbox } from "@/shared/components/Checkbox/Checkbox";
+import { Checkbox } from "@/shared/components/common/Checkbox/Checkbox";
 import { formatDate } from "@/Coupon/utils/format";
 import * as S from "./CouponModal.styles";
 import { CouponInfoRender } from "./CouponInfoRender";

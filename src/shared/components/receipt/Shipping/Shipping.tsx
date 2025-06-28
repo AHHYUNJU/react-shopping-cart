@@ -1,4 +1,4 @@
-import { Checkbox } from "../Checkbox/Checkbox";
+import { Checkbox } from "../../common/Checkbox/Checkbox";
 
 import * as S from "./Shipping.styles";
 interface ShippingProps {

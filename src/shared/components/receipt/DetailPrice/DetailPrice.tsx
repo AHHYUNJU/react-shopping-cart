@@ -1,4 +1,4 @@
-import { Price } from "../Price/Price";
+import { Price } from "../../common/Price/Price";
 
 import * as S from "./DetailPrice.styles";
 
