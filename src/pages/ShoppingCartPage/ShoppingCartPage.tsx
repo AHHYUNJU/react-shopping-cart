@@ -12,26 +12,23 @@ import * as S from "./ShoppingCartPage.styles";
 function ShoppingCartPage() {
   const navigate = useNavigate();
   const { cartItemList } = useCartItemContext();
-  const selectedCartItemList = cartItemList.filter((item) => item.isChecked);
   const { state } = useCartItemList();
   const { errorMessage } = useErrorContext();
 
   const handleOrderListButtonClick = () => {
+    const selectedCartItemList = cartItemList.filter((item) => item.isChecked);
+
     localStorage.setItem(
       "selectedCartItemList",
       JSON.stringify(selectedCartItemList)
     );
 
-    navigate("/order-check", {
-      state: {
-        selectedCartItemList,
-      },
-    });
+    navigate("/order-check", { state: { selectedCartItemList } });
   };
 
-  if (state.isLoading) {
-    return <div>로딩 중...</div>;
-  }
+  if (state.isLoading) return <p>로딩 중...</p>;
+
+  const selectedCount = cartItemList.filter((item) => item.isChecked).length;
 
   return (
     <S.ShoppingCartPage>
@@ -40,9 +37,9 @@ function ShoppingCartPage() {
       <ShoppingCartContent />
       <Footer
         text="주문 확인"
-        active={selectedCartItemList.length > 0}
+        active={selectedCount > 0}
         handleClick={handleOrderListButtonClick}
-      ></Footer>
+      />
     </S.ShoppingCartPage>
   );
 }

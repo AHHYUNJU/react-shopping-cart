@@ -1,8 +1,9 @@
-import * as S from "./Receipt.styles";
 import { Info } from "../Info/Info";
 import { Hr } from "../Hr/Hr";
 import { Price } from "../Price/Price";
 import { DetailPrice } from "../DetailPrice/DetailPrice";
+
+import * as S from "./Receipt.styles";
 
 type ReceiptProps = {
   allProductPrice: number;
@@ -17,6 +18,8 @@ function Receipt({
   couponDiscount = 0,
   showCouponDiscount = false,
 }: ReceiptProps) {
+  const totalPrice = allProductPrice + shippingFee - couponDiscount;
+
   return (
     <S.ReceiptWrapper>
       <Info message="총 주문 금액이 100,000원 이상일 경우 무료 배송됩니다." />
@@ -28,10 +31,7 @@ function Receipt({
         showCouponDiscount={showCouponDiscount}
       />
       <Hr />
-      <Price
-        name="총 결제 금액"
-        price={allProductPrice + shippingFee - couponDiscount}
-      />
+      <Price name="총 결제 금액" price={totalPrice} />
     </S.ReceiptWrapper>
   );
 }

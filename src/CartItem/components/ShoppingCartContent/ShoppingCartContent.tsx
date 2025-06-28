@@ -9,6 +9,9 @@ function ShoppingCartContent() {
   const { cartItemList, toggleAll, isAllChecked, getTotalPrice, shippingFee } =
     useCartItemContext();
 
+  const totalPrice = getTotalPrice();
+  const deliveryFee = shippingFee(totalPrice);
+
   return (
     <S.ShoppingCartContent>
       <S.CartHeader>
@@ -27,10 +30,7 @@ function ShoppingCartContent() {
         <label htmlFor="check-all">전체 선택</label>
       </S.CheckWrapper>
       <ItemList />
-      <Receipt
-        allProductPrice={getTotalPrice()}
-        shippingFee={shippingFee(getTotalPrice())}
-      />
+      <Receipt allProductPrice={totalPrice} shippingFee={deliveryFee} />
     </S.ShoppingCartContent>
   );
 }
