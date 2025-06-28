@@ -7,6 +7,7 @@ import { useReceipt } from "@/CartItem/hooks/useReceipt";
 import { Receipt } from "@/shared/components/Receipt/Receipt";
 
 import * as S from "./OrderCheckContent.styles";
+import { Flex } from "@/shared/components/Flex";
 
 type Props = {
   selectedCartItemList: CartItemResponse[];
@@ -58,10 +59,10 @@ function OrderCheckContent({
               <S.Item>
                 <S.Image src={item.product.imageUrl} alt={item.product.name} />
                 <S.Info>
-                  <S.Flex direction="column" gap="4px">
+                  <Flex direction="column" gap="4px">
                     <S.Name>{item.product.name}</S.Name>
                     <S.Price>{item.product.price.toLocaleString()}원</S.Price>
-                  </S.Flex>
+                  </Flex>
                   <S.Quantity>{item.cartQuantity}개</S.Quantity>
                 </S.Info>
               </S.Item>
