@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { vi } from "vitest";
-import { CouponModal } from "@/Coupon/ui/CouponModal/CouponModal";
+import { CouponModal } from "@/Coupon/components/CouponModal/CouponModal";
 import { CouponContext } from "@/Coupon/context/CouponContext";
 import { ErrorProvider } from "@/shared/context/ErrorContext";
 import { CouponResponse } from "@/Coupon/types/CouponResponse";

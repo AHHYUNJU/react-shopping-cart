@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { CouponModal } from "@/Coupon/ui/CouponModal/CouponModal";
+import { CouponModal } from "@/Coupon/components/CouponModal/CouponModal";
 import { Shipping } from "@/shared/components/receipt/Shipping/Shipping";
 import { CartItemResponse } from "@/CartItem/types/CartItemResponse";
 import { useReceipt } from "@/CartItem/hooks/useReceipt";
