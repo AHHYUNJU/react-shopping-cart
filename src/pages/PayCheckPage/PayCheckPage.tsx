@@ -18,6 +18,25 @@ function PayCheckPage() {
     navigate("/", {});
   };
 
+  if (!location.state || !selectedCartItemList.length) {
+    return (
+      <S.PayCheckPage>
+        <Header />
+        <div>
+          <h1>잘못된 접근입니다.</h1>
+          <p>
+            장바구니에서 상품을 선택한 후에만 주문 확인 페이지를 볼 수 있습니다.
+          </p>
+        </div>
+        <Footer
+          text="장바구니로 돌아가기"
+          active={true}
+          handleClick={handleReturnClick}
+        />
+      </S.PayCheckPage>
+    );
+  }
+
   return (
     <S.PayCheckPage>
       <Header />
@@ -30,7 +49,7 @@ function PayCheckPage() {
         text="장바구니로 돌아가기"
         active={true}
         handleClick={handleReturnClick}
-      ></Footer>
+      />
     </S.PayCheckPage>
   );
 }
