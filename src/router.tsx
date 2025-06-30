@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router";
 import { Layout } from "./Layout";
-import { ShoppingCartPage } from "./pages/ShoppingCartPage/ShoppingCartPage";
-import { OrderCheckPage } from "./pages/OrderCheckPage/OrderCheckPage";
-import { PayCheckPage } from "./pages/PayCheckPage/PayCheckPage";
+import { ShoppingCartPage } from "./pages/ShoppingCartPage";
+import { OrderCheckPage } from "./pages/OrderCheckPage";
+import { PayCheckPage } from "./pages/PayCheckPage";
 
 const routes = [
   {

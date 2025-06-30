@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router";
 import { Header } from "@/shared/components/layout/Header/Header";
 import { Footer } from "@/shared/components/layout/Footer/Footer";
 import { ErrorBox } from "@/shared/components/feedback/Errorbox/Errorbox";
-import { OrderCheckContent } from "@/CartItem/components/OrderCheckContent/OrderCheckContent";
+import { OrderCheckContent } from "./components/OrderCheckContent/OrderCheckContent";
 import { useErrorContext } from "@/shared/context/ErrorContext";
 import backButton from "../../assets/backButton.png";
 import useCartItemList from "@/CartItem/hooks/useCartItemList";

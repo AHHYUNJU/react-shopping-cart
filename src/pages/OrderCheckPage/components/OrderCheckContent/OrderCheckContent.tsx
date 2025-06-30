@@ -5,7 +5,7 @@ import { CartItemResponse } from "@/CartItem/types/CartItemResponse";
 import { useReceipt } from "@/CartItem/hooks/useReceipt";
 import { useCouponModal } from "@/Coupon/hooks/useCouponModal";
 import { Receipt } from "@/shared/components/receipt/Receipt/Receipt";
-import { CartItemBox } from "../CartItemBox/CartItemBox";
+import { CartItemBox } from "@/CartItem/components/CartItemBox/CartItemBox";
 import { TitleSection } from "@/shared/components/common/\bTitleSection/TitleSection";
 
 import * as S from "./OrderCheckContent.styles";

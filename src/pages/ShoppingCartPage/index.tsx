@@ -2,9 +2,9 @@ import { useNavigate } from "react-router";
 import { Header } from "@/shared/components/layout/Header/Header";
 import { Footer } from "@/shared/components/layout/Footer/Footer";
 import { ErrorBox } from "@/shared/components/feedback/Errorbox/Errorbox";
-import { ShoppingCartContent } from "@/CartItem/components/ShoppingCartContent/ShoppingCartContent";
-import { useCartItemContext } from "@/CartItem/context/CartItemContext";
+import { ShoppingCartContent } from "./components/ShoppingCartContent/ShoppingCartContent";
 import { useErrorContext } from "@/shared/context/ErrorContext";
+import { useCartItemContext } from "@/CartItem/context/CartItemContext";
 import useCartItemList from "@/CartItem/hooks/useCartItemList";
 
 import * as S from "./ShoppingCartPage.styles";
