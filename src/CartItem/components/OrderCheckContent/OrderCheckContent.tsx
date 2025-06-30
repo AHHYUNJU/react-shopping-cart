@@ -44,7 +44,7 @@ function OrderCheckContent({
   }, [couponDiscount, totalPrice, finalShippingFee]);
 
   return (
-    <S.OrderCheckContent>
+    <S.OrderCheckContent data-testid="order-check">
       <S.CartHeader>
         <TitleSection
           title="주문 확인"

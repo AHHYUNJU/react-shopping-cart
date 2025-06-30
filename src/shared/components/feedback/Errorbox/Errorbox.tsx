@@ -11,7 +11,7 @@ function ErrorBox() {
   }
 
   return (
-    <S.Errorbox>
+    <S.Errorbox data-testid="error-box">
       <S.message>{errorMessage}</S.message>
     </S.Errorbox>
   );
