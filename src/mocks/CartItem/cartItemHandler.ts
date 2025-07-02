@@ -1,5 +1,5 @@
 import { http, HttpResponse } from "msw";
-import { CART_ITEM_MOCK_DATA } from "./cartItemMockData";
+import { CART_ITEM_MOCK_DATA } from "./CartItemMockData";
 
 export const cartItemHandler = [
   http.get("/cart-items", ({ request }) => {

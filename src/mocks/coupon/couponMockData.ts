@@ -12,7 +12,7 @@ export const COUPON_MOCK_DATA = [
     id: 2,
     code: "BOGO",
     description: "2개 구매 시 1개 무료 쿠폰",
-    expirationDate: "2025-06-30",
+    expirationDate: "2026-06-30",
     buyQuantity: 2,
     getQuantity: 1,
     discountType: "buyXgetY",
