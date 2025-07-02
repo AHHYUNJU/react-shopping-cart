@@ -7,23 +7,23 @@ export const Footer = styled.footer<{ active: boolean }>`
   height: 64px;
   align-items: center;
   flex-shrink: 0;
-`;
 
-export const Span = styled.div`
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 16px;
-  padding: 20px;
-`;
+  button {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 
-export const Button = styled.button`
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
 
-  &:disabled {
-    cursor: not-allowed;
+  span {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 20px;
   }
 `;

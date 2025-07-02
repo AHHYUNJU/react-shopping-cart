@@ -4,9 +4,9 @@ import { FooterProps } from "./Footer.types";
 function Footer({ text, active = false, handleClick }: FooterProps) {
   return (
     <S.Footer active={active}>
-      <S.Button disabled={!active} onClick={handleClick}>
-        <S.Span>{text}</S.Span>
-      </S.Button>
+      <button disabled={!active} onClick={handleClick}>
+        <span>{text}</span>
+      </button>
     </S.Footer>
   );
 }

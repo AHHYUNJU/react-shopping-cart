@@ -7,7 +7,7 @@ interface HeaderProps {
 function Header({ children }: HeaderProps) {
   return (
     <S.Header>
-      <S.Span>{children}</S.Span>
+      <span>{children}</span>
     </S.Header>
   );
 }

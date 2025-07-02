@@ -8,11 +8,11 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   flex-shrink: 0;
-`;
 
-export const Span = styled.div`
-  color: #ffffff;
-  font-weight: 800;
-  cursor: pointer;
-  padding: 24px;
+  span {
+    color: #ffffff;
+    font-weight: 800;
+    cursor: pointer;
+    padding: 24px;
+  }
 `;

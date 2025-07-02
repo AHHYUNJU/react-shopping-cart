@@ -1,5 +1,10 @@
 import styled from "@emotion/styled";
 
+export const ShippingWrapper = styled.div`
+  p {
+  }
+`;
+
 export const Title = styled.p`
   font-weight: 700;
   font-size: 16px;
@@ -7,7 +12,7 @@ export const Title = styled.p`
   text-align: left;
 `;
 
-export const CheckWrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
