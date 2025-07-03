@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { CartItemContext } from "./CartItemContext";
-import { useCartItemHandlers } from "./useCartItemHandlers";
+import { useCartItemHandlers } from "../hooks/useCartItemHandlers";
 import type { CartItemResponse } from "../types/CartItemResponse";
 
 export const CartItemProvider = ({
