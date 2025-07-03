@@ -1,4 +1,6 @@
-import { useCartItemContext } from "@/CartItem/context/CartItemContext";
+import { useCartItemState } from "@/CartItem/context/CartItemStateContext";
+import { useCartItemActions } from "@/CartItem/context/CartItemActionContext";
+
 import { Checkbox } from "@/shared/components/common/Checkbox/Checkbox";
 import { Receipt } from "@/shared/components/receipt/Receipt/Receipt";
 import { CartItemBox } from "@/CartItem/components/CartItemBox/CartItemBox";
@@ -7,16 +9,15 @@ import { TitleSection } from "@/shared/components/common/\bTitleSection/TitleSec
 import * as S from "./ShoppingCartContent.styles";
 
 function ShoppingCartContent() {
+  const { cartItemList, isAllChecked } = useCartItemState();
   const {
-    cartItemList,
     toggleAll,
-    isAllChecked,
+    toggleCheck,
+    updateCartItemQuantity,
+    removeCartItem,
     getTotalPrice,
     shippingFee,
-    toggleCheck,
-    removeCartItem,
-    updateCartItemQuantity,
-  } = useCartItemContext();
+  } = useCartItemActions();
 
   const totalPrice = getTotalPrice();
   const deliveryFee = shippingFee(totalPrice);

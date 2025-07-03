@@ -1,6 +1,7 @@
 import { useReducer } from "react";
-import { useCartItemContext } from "../context/CartItemContext";
+import { useCartItemActions } from "../context/CartItemActionContext";
 import { useErrorContext } from "@/shared/context/ErrorContext";
+import { useCartItemState } from "../context/CartItemStateContext";
 
 const INIT_STATE = {
   isLoading: false,
@@ -53,8 +54,10 @@ const reducer = (state: typeof INIT_STATE, action: { type: string }) => {
 
 const useCartItemList = () => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
-  const { cartItemList, updateCartItemQuantity, removeCartItem } =
-    useCartItemContext();
+  // const { cartItemList, updateCartItemQuantity, removeCartItem } =
+  //   useCartItemContext();
+  const { cartItemList } = useCartItemState();
+  const { updateCartItemQuantity, removeCartItem } = useCartItemActions();
   const { handleErrorMessage } = useErrorContext();
 
   const patchCartItem = async (id: number, quantity: number) => {

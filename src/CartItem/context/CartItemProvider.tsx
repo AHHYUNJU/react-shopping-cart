@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { CartItemContext } from "./CartItemContext";
+import { CartItemStateContext } from "./CartItemStateContext";
+import { CartItemActionContext } from "./CartItemActionContext";
 import { useCartItemHandlers } from "../hooks/useCartItemHandlers";
 import type { CartItemResponse } from "../types/CartItemResponse";
 
@@ -24,12 +25,16 @@ export const CartItemProvider = ({
     setIsAllChecked(allChecked);
   }, [cartItems]);
 
-  const value = useMemo(
+  const stateValue = useMemo(
     () => ({
       cartItemList: cartItems,
       isAllChecked,
-      updateCartItemQuantity,
-      removeCartItem,
+    }),
+    [cartItems, isAllChecked]
+  );
+
+  const actionsValue = useMemo(
+    () => ({
       toggleAll: () => {
         setCartItems((prev) =>
           prev.map((i) => ({ ...i, isChecked: !isAllChecked }))
@@ -43,6 +48,8 @@ export const CartItemProvider = ({
           )
         );
       },
+      updateCartItemQuantity,
+      removeCartItem,
       getTotalPrice: () =>
         cartItems
           .filter((i) => i.isChecked)
@@ -52,12 +59,14 @@ export const CartItemProvider = ({
           ),
       shippingFee: (total: number) => (total > 100000 ? 0 : 3000),
     }),
-    [cartItems, isAllChecked]
+    [cartItems, isAllChecked, updateCartItemQuantity, removeCartItem]
   );
 
   return (
-    <CartItemContext.Provider value={value}>
-      {children}
-    </CartItemContext.Provider>
+    <CartItemStateContext.Provider value={stateValue}>
+      <CartItemActionContext.Provider value={actionsValue}>
+        {children}
+      </CartItemActionContext.Provider>
+    </CartItemStateContext.Provider>
   );
 };

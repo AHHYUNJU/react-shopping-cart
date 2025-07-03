@@ -4,14 +4,14 @@ import { Footer } from "@/shared/components/layout/Footer/Footer";
 import { ErrorBox } from "@/shared/components/feedback/Errorbox/Errorbox";
 import { ShoppingCartContent } from "./components/ShoppingCartContent/ShoppingCartContent";
 import { useErrorContext } from "@/shared/context/ErrorContext";
-import { useCartItemContext } from "@/CartItem/context/CartItemContext";
 import useCartItemList from "@/CartItem/hooks/useCartItemList";
+import { useCartItemState } from "@/CartItem/context/CartItemStateContext";
 
 import * as S from "./ShoppingCartPage.styles";
 
 function ShoppingCartPage() {
   const navigate = useNavigate();
-  const { cartItemList } = useCartItemContext();
+  const { cartItemList } = useCartItemState();
   const { state } = useCartItemList();
   const { errorMessage } = useErrorContext();
 
